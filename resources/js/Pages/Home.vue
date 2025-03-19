@@ -173,7 +173,7 @@ const isModified = (todo) => {
                 <label for="select-all">Select All</label>
             </div>
             <div class="text-sm text-gray-500">
-                {{ selectedTodos.length }} dari {{ props.todos.length }} dipilih
+                {{ selectedTodos?.length || 0 }} dari {{ props.todos?.length || 0 }} dipilih
             </div>
         </div>
 
