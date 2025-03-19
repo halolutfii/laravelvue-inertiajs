@@ -91,7 +91,11 @@ const trackUpdate = (todo) => {
 // Batch update
 const batchUpdate = () => {
     if (selectedTodos.value.length === 0) {
-        alert('Pilih minimal satu item untuk diupdate!')
+        Swal.fire({
+            icon: 'warning',
+            title: 'Tidak ada data yang dipilih!',
+            text: 'Pilih minimal satu item untuk diupdate!',
+        });
         return
     }
     
@@ -101,8 +105,12 @@ const batchUpdate = () => {
     )
     
     if (updates.length === 0) {
-        alert('Tidak ada perubahan pada item yang dipilih!')
-        return
+        Swal.fire({
+            icon: 'warning',
+            title: 'Tidak ada perubahan!',
+            text: 'Tidak ada perubahan pada item yang dipilih.',
+        });
+        return;
     }
     
     isProcessing.value = true
