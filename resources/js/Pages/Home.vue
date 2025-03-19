@@ -17,7 +17,7 @@ const isProcessing = ref(false)
 // Computed property untuk select all
 const allSelected = computed({
     get: () => {
-        return props.todos.length > 0 && selectedTodos.value.length === props.todos.length
+        return props.todos && props.todos.length > 0 && selectedTodos.value.length === props.todos.length
     },
     set: (value) => {
         selectedTodos.value = value ? props.todos.map(t => t.id) : []
@@ -178,7 +178,7 @@ const isModified = (todo) => {
         </div>
 
         <!-- List Todo -->
-        <ul v-if="props.todos.length">
+        <ul v-if="props.todos && props.todos.length">
             <li v-for="todo in props.todos" :key="todo.id" 
                 class="flex justify-between items-center border-b py-2"
                 :class="{ 'bg-blue-50': selectedTodos.includes(todo.id) }">
